@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: tomato;
+      margin-bottom: 50px;
+    }
+    /* 속성 선택자 */
+    div [data-display-name='dream'] {
+      background-color: beige;
+    }
+  </style>
+</head>
+<body>
+  <!-- <div id="" class=""></div> -->
+  <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+
+  <div data-index="1" data-display-name="dream"></div>
+  <div data-index="2" data-display-name="coding"></div>
+  <!-- 위 스타일에서 "div [attribute]" 는 div 중 data-display-name이 dream 인 경우만 선택해서 속성을 넣어주는 방식이다. 모든 data-display-name에 속성을 적용시키고 싶다면 맨 앞 div를 지우면 된다. -->
+  <span data-index="1" data-display-name="dream">abcde</span>
+
+  <script>
+    // querySelector는 CSS 에서 선택자로 사용하는 것을 그대로 쓸 수 있다.
+    // div Tag를 사용하는 DOM 요소 중 맨 처음 등장하는 요소만 dream 변수에 할당한다.
+    const dream = document.querySelector('div');
+    // const dream = document.querySelector('div [data-display-name="dream"]'); 도 가능하나, 따옴표 구분이 필요하다.
+    console.log(dream.dataset) // DOMStringMap {index: '1', displayName: 'dream'}
+    console.log(dream.dataset.displayName); // dream
+    console.log(dream.dataset.index); // 1
+  </script>
+  
+</body>
+</html>
