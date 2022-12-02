@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      background-color: beige;
+      width: 200px;
+      height: 100px;
+    }
+    .inner {
+      width: 50%;
+      height: 50%;
+      background-color: blue;
+    }
+    .inner1 {
+      margin: auto;
+    }
+    .box2 {
+      text-align: center;
+    }
+    .inner3 {
+      transform: translate(50%, 50%);
+    }
+    .box4 h1 {
+      text-align: center;
+      line-height: 100px;
+    }
+    .inner4 {
+      width: 50px;
+      height: 50px;
+      transform: translate(50%, 50%);
+    }
+    .inner5 {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <h3>margin: auto</h3>
+  <div class="box box1">
+    <div class="inner inner1"></div>
+  </div>
+  <h3>text-align: center</h3>
+  <div class="box box2">
+    <div class="inner inner2"></div>
+    <button>button</button>
+  </div>
+  <h3>translate(50%, 50%)</h3>
+  <div class="box box3">
+    <div class="inner inner3"></div>
+  </div>
+  <h3>Text centering</h3>
+  <div class="box box4">
+    <h1>Text</h1>
+  </div>
+  <h3>translate understanding <br> wrong center</h3>
+  <div class="box box5">
+    <div class="inner inner4"></div>
+  </div>
+  <h3>translate understanding <br> correct center</h3>
+  <div class="box box6">
+    <div class="inner inner5"></div>
+  </div>
+</body>
+</html>
