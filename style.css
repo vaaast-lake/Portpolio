@@ -98,8 +98,6 @@ p {
   background-color: var(--color-pink);
   align-items: center;
   padding: 0 16px;
-  top: 0px;
-  left: 0px;
 }
 
 .navbar__logo {
@@ -475,19 +473,21 @@ p {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
-  .navbar__toggle-btn {
-    display: block;
-  }
-
-  #navhbar {
+  
+  #navbar {
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  .navbar__toggle-btn {
+    display: block;
   }
 
   .navbar__menu {
     flex-direction: column;
     text-align: center;
-    width: 100%;
+    display: block;
+    margin: auto;
     display: none;
   }
 
