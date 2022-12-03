@@ -26,7 +26,7 @@
   <nav id="navbar">
     <div class="navbar__logo">
       <i class="fa-regular fa-comment-dots"></i>
-      <a class="navbar__logo__link" href="#">Kwon</a>
+      <a href="#">Kwon</a>
     </div>
     <ul class="navbar__menu">
       <li class="navbar__menu__item active">Home</li>
@@ -48,7 +48,7 @@
     <button class="home__contact">contact me</button>
   </section>
   <!-- About -->
-  <section id="about">
+  <section id="about" class="section">
     <!-- Navbar 나 Home 에서와 달리 페이지에서 공통으로 쓰이기 때문에 각각의 블럭으로 관리할 수 있다. -->
     <h1>About me</h1>
     <h2>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis ad numquam consectetur quo at harum neque dolores dolor ullam maxime! Doloribus est error pariatur labore aspernatur magni itaque voluptatibus maiores?</h2>
@@ -57,39 +57,43 @@
         <div class="major__icon">
           <i class="fab fa-html5"></i>
         </div>
-        <div class="major__title">Front-end</div>
+        <h2 class="major__title">Front-end</h2>
         <div class="major__description">HTML, CSS, JavaScript, TypeScript, <br> React, Vue, Web APIs</div>
       </div>
       <div class="major">
         <div class="major__icon">
           <i class="fa-solid fa-mobile"></i>
         </div>
-        <div class="major__title">Mobile</div>
+        <h2 class="major__title">Mobile</h2>
         <div class="major__description">Android, IOS, React Native, Flutter, <br> Java, Swift, Kotlin</div>
       </div>
       <div class="major">
         <div class="major__icon">
           <i class="fa-solid fa-server"></i>
         </div>
-        <div class="major__title">Back-end</div>
+        <h2 class="major__title">Back-end</h2>
         <div class="major__description">Java, JavaScript, Go, NodeJS, <br> Rest APIs, GraphGL</div>
       </div>
     </div>
     <div class="about__schools">
       <div class="school">
-        <img src="./imgs/tempProfile.png" alt="tmpImg" class="school__logo">
-        <p class="school__name">Gyeonsang National Nuniversity</p>
-        <p class="school__period">2014.03 - 2022.02</p>
+        <img src="./imgs/tempProfile.png" alt="tmpImg" class="school__logo" width="50px" height="50px">
+        <div class="school__description">
+          <p class="school__name">Gyeonsang National Nuniversity</p>
+          <p class="school__period">2014.03 - 2022.02</p>
+        </div>
       </div>
       <div class="school">
-        <img src="./imgs/tempProfile.png" alt="tmpImg" class="school__logo">
-        <p class="school__name">Deggendorf Institute of Technology</p>
-        <p class="school__period">2019.10 - 2020.02</p>
+        <img src="./imgs/tempProfile.png" alt="tmpImg" class="school__logo" width="50px" height="50px">
+        <div class="school__description">
+          <p class="school__name">Deggendorf Institute of Technology</p>
+          <p class="school__period">2019.10 - 2020.02</p>
+        </div>
       </div>
     </div>
   </section>
   <!-- Skills -->
-  <section id="skills">
+  <section id="skills" class="section">
     <h1>Skills</h1>
     <h2>Skills & Attribute</h2>
     <p>
@@ -154,7 +158,7 @@
     </div>
   </section>
   <!-- Work -->
-  <section id="work">
+  <section id="work" class="section">
     <h1>My work</h1>
     <h2>Projects</h2>
     <div class="work__categories">
@@ -212,7 +216,7 @@
     </div>
   </section>
   <!-- Testimonials -->
-  <section id="testimonials">
+  <section id="testimonials" class="section">
     <h1>Testimonials</h1>
     <h2>See what they say about me</h2>
     <div class="testimonials">
@@ -241,7 +245,7 @@
     </div>
   </section>
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" class="section">
     <h1 class="contact__title">Let's talk</h1>
     <h2 class="contact__email">kown9512@gamil.com</h2>
     <div class="contact__link">
