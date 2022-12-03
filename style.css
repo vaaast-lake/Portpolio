@@ -98,7 +98,6 @@ p {
   background-color: var(--color-pink);
   align-items: center;
   padding: 0 16px;
-  position: sticky;
   top: 0px;
   left: 0px;
 }
@@ -246,7 +245,7 @@ p {
 
 .skillset {
   display: flex;
-  background-color: var(--color-light-gray);
+  background-color: var(--color-light-grey);
   color: var(--color-light-white);
   margin: 20px 0;
 }
@@ -428,7 +427,7 @@ p {
 }
 
 .testimonial__speech-bubble p {
-  color: var(--color-light-gray);
+  color: var(--color-light-grey);
 }
 
 .testimonial__speech-bubble a {
@@ -457,9 +456,6 @@ p {
 .contact__link {
   font-size: var(--font-large);
   margin: 24px 0;
-}
-
-.contact__link i {
 }
 
 .contact__link i:hover {
