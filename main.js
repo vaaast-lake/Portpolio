@@ -17,25 +17,22 @@ const onSticky = () => {
 
 document.addEventListener('scroll', onSticky);
 
-// Scroll to section when click item.
-const menu = document.querySelector('.navbar__menu');
+// Handle scrolling when tapping on the navbar menu
+const navbarMenu = document.querySelector('.navbar__menu');
 
-// create border line, scroll to section
-const activeItem = (event) => {
-  const target = event.target;
+const activeItem = (target) => {
   const activedItem = document.querySelector('.active');
-  const sectionString = target.textContent.toLowerCase();
-  const section = document.querySelector(`#${sectionString}`);
-  const sectionY = section.getBoundingClientRect().top;
-
   activedItem.classList.remove('active');
   target.classList.add('active');
-  window.scrollBy({
-    top: sectionY,
-    behavior: 'smooth'
-  });
 }
 
-menu.addEventListener('click', (event) => {
-  if (event.target.tagName === 'LI') activeItem(event);
+navbarMenu.addEventListener('click', (event) => {
+  const target = event.target;
+  const link = target.dataset.link;
+  const scrollToSection = document.querySelector(link);
+
+  if (link == null) return;
+
+  scrollToSection.scrollIntoView({behavior: 'smooth'});
+  activeItem(target);
 });
