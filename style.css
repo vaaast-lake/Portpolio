@@ -94,9 +94,8 @@ p {
 /* Navbar */
 #navbar {
   display: flex;
-  position: absolute;
-  left: 0;
-  right: 0;
+  position: fixed;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
@@ -104,10 +103,8 @@ p {
 }
 
 #navbar.sticky {
-  position: fixed;
-  top: 0;
   background-color: var(--color-dark-pink);
-  transform: scale(1.01);
+  padding: 2px 8px;
 }
 
 .navbar__logo {
