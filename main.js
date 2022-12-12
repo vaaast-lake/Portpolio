@@ -28,7 +28,7 @@ document.addEventListener('scroll', () => {
     const sectionHeinght = section.getBoundingClientRect().height;
     const activingItem = navbar.querySelector(`[data-link="${link}"]`);
 
-    if (Math.floor(scrollPos + window.innerHeight) == Math.floor(bodyHeight)) {
+    if (Math.floor(scrollPos + window.innerHeight + 200) >= Math.floor(bodyHeight)) {
       const contact = navbar.querySelector('[data-link="#contact"]');
       activedItem.classList.remove('active');
       contact.classList.add('active');
@@ -60,7 +60,7 @@ navbarMenu.addEventListener('click', (event) => {
   scrollIntoViews(link);
   setTimeout(() => {
     activeItem(target);
-  }, 1000);
+  }, 50);
 });
 
 // Handle click on "contact me" button on home
