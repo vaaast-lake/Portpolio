@@ -48,18 +48,21 @@ const activeItem = (target) => {
 navbarMenu.addEventListener('click', (event) => {
   const target = event.target;
   const link = target.dataset.link;
-  const scrollToSection = document.querySelector(link);
 
   if (link == null) return;
 
-  scrollToSection.scrollIntoView({behavior: 'smooth'});
+  scrollIntoViews(link);
   activeItem(target);
 });
 
-// scroll to contact section with contact me button
-const btn = document.querySelector('.home__contact');
+// Handle click on "contact me" button on home
+const homeContactBtn = document.querySelector('.home__contact');
 
-btn.addEventListener('click', () => {
-  const contactSeciton = document.querySelector('#contact');
-  contactSeciton.scrollIntoView({behavior: 'smooth'});
+homeContactBtn.addEventListener('click', () => {
+  scrollIntoViews('#contact')
 });
+
+const scrollIntoViews = (selector) => {
+  const scrollTo = document.querySelector(selector);
+  scrollTo.scrollIntoView({behavior: 'smooth'});
+}
