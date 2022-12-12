@@ -16,6 +16,7 @@ const onSticky = (scrollPos) => {
 
 // sticky navbar & navbar active depend on scroll position.  
 document.addEventListener('scroll', () => {
+  const bodyHeight = document.querySelector('body').scrollHeight;
   const scrollPos = window.scrollY;
   const activedItem = navbar.querySelector('.active');
   const navbarItems = document.querySelectorAll('.navbar__menu__item');
@@ -27,10 +28,15 @@ document.addEventListener('scroll', () => {
     const sectionHeinght = section.getBoundingClientRect().height;
     const activingItem = navbar.querySelector(`[data-link="${link}"]`);
 
-    if ((scrollPos + 150 >= sectionTop) && (scrollPos + 150 < sectionTop + sectionHeinght)) {
+    if (scrollPos + window.innerHeight == bodyHeight) {
+      const contact = navbar.querySelector('[data-link="#contact"]');
+      activedItem.classList.remove('active');
+      contact.classList.add('active');
+    }
+    else if ((scrollPos + 150 >= sectionTop) && (scrollPos + 150 < sectionTop + sectionHeinght)) {
       activedItem.classList.remove('active');
       activingItem.classList.add('active');
-    }
+    } 
   });
 
   onSticky(scrollPos);
