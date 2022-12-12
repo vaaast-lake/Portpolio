@@ -14,7 +14,7 @@ const onSticky = (scrollPos) => {
   }
 }
 
-// sticky navbar & navbar active depend on scroll position.  
+// sticky navbar & navbar active depend on scroll position.
 document.addEventListener('scroll', () => {
   const bodyHeight = document.querySelector('body').scrollHeight;
   const scrollPos = window.scrollY;
@@ -28,7 +28,7 @@ document.addEventListener('scroll', () => {
     const sectionHeinght = section.getBoundingClientRect().height;
     const activingItem = navbar.querySelector(`[data-link="${link}"]`);
 
-    if (scrollPos + window.innerHeight == bodyHeight) {
+    if (Math.floor(scrollPos + window.innerHeight) == Math.floor(bodyHeight)) {
       const contact = navbar.querySelector('[data-link="#contact"]');
       activedItem.classList.remove('active');
       contact.classList.add('active');
@@ -36,7 +36,7 @@ document.addEventListener('scroll', () => {
     else if ((scrollPos + 150 >= sectionTop) && (scrollPos + 150 < sectionTop + sectionHeinght)) {
       activedItem.classList.remove('active');
       activingItem.classList.add('active');
-    } 
+    }
   });
 
   onSticky(scrollPos);
@@ -58,7 +58,9 @@ navbarMenu.addEventListener('click', (event) => {
   if (link == null) return;
 
   scrollIntoViews(link);
-  activeItem(target);
+  setTimeout(() => {
+    activeItem(target);
+  }, 1000);
 });
 
 // Handle click on "contact me" button on home
