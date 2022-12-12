@@ -6,7 +6,7 @@
   --color-light-white: #eeeeee;
   --color-dark-white: #bdbdbd;
   --color-pink: #ff9e97;
-  --color-dark-pink: #ea8888c9;
+  --color-dark-pink: #e39d9d;
   --color-dark-grey: #4d4d4d;
   --color-grey: #616161;
   --color-light-grey: #7c7979;
@@ -94,10 +94,20 @@ p {
 /* Navbar */
 #navbar {
   display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
   justify-content: space-between;
-  background-color: var(--color-pink);
   align-items: center;
   padding: 0 16px;
+  transition: all 300ms ease-out;
+}
+
+#navbar.sticky {
+  position: fixed;
+  top: 0;
+  background-color: var(--color-dark-pink);
+  transform: scale(1.01);
 }
 
 .navbar__logo {
@@ -127,8 +137,7 @@ p {
 
 .navbar__menu__item:hover {
   background-color: var(--color-dark-pink);
-  border-bottom: 2px solid var(--color-white);
-  transition: all 300ms ease-out;
+  transition: background-color 300ms ease-out;
 }
 
 .navbar__toggle-btn {
@@ -143,7 +152,7 @@ p {
 /* Home */
 #home {
   background: center/cover no-repeat url("imgs/background.png");
-  padding: 40px;
+  padding: 60px 40px 40px 40px;
   text-align: center;
 }
 
