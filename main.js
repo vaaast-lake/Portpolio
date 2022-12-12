@@ -1,21 +1,40 @@
 'use strict';
 
 // Make navbar transarent when it is on the top.
-const navBar = document.querySelector('#navbar');
+const navbar = document.querySelector('#navbar');
 
-const onSticky = () => { 
+const onSticky = (scrollPos) => { 
   // let navTop = navBar.offsetTop;
-  let scrollPos = window.scrollY;
-  let navbarHeight = navBar.getBoundingClientRect().height;
+  const navbarHeight = navbar.getBoundingClientRect().height;
 
   if (scrollPos > navbarHeight) {
-    navBar.classList.add('sticky');
+    navbar.classList.add('sticky');
   } else {
-    navBar.classList.remove('sticky');
+    navbar.classList.remove('sticky');
   }
 }
 
-document.addEventListener('scroll', onSticky);
+// sticky navbar & navbar active depend on scroll position.  
+document.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY;
+  const activedItem = navbar.querySelector('.active');
+  const navbarItems = document.querySelectorAll('.navbar__menu__item');
+
+  navbarItems.forEach(item => {
+    const link = item.dataset.link; // #home
+    const section = document.querySelector(link);
+    const sectionTop = section.offsetTop;
+    const sectionHeinght = section.getBoundingClientRect().height;
+    const activingItem = navbar.querySelector(`[data-link="${link}"]`);
+
+    if ((scrollPos + 150 >= sectionTop) && (scrollPos + 150 < sectionTop + sectionHeinght)) {
+      activedItem.classList.remove('active');
+      activingItem.classList.add('active');
+    }
+  });
+
+  onSticky(scrollPos);
+});
 
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
@@ -35,4 +54,12 @@ navbarMenu.addEventListener('click', (event) => {
 
   scrollToSection.scrollIntoView({behavior: 'smooth'});
   activeItem(target);
+});
+
+// scroll to contact section with contact me button
+const btn = document.querySelector('.home__contact');
+
+btn.addEventListener('click', () => {
+  const contactSeciton = document.querySelector('#contact');
+  contactSeciton.scrollIntoView({behavior: 'smooth'});
 });
