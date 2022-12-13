@@ -450,6 +450,7 @@ p {
 
 /* Contact */
 #contact {
+  padding: 70px;
   background-color: var(--color-pink);
 }
 

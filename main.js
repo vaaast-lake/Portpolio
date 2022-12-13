@@ -24,16 +24,16 @@ document.addEventListener('scroll', () => {
   navbarItems.forEach(item => {
     const link = item.dataset.link; // #home
     const section = document.querySelector(link);
-    const sectionTop = section.offsetTop;
+    const distanceToTop = window.scrollY + section.getBoundingClientRect().top;
     const sectionHeinght = section.getBoundingClientRect().height;
     const activingItem = navbar.querySelector(`[data-link="${link}"]`);
 
-    if (Math.floor(scrollPos + window.innerHeight + 50) >= Math.floor(bodyHeight)) {
+    if (Math.floor(scrollPos + window.innerHeight) == Math.floor(bodyHeight)) {
       const contact = navbar.querySelector('[data-link="#contact"]');
       activedItem.classList.remove('active');
       contact.classList.add('active');
     }
-    else if ((scrollPos + 500 >= sectionTop) && (scrollPos + 500 < sectionTop + sectionHeinght)) {
+    else if ((scrollPos + 500 >= distanceToTop) && (scrollPos + 500 < distanceToTop + sectionHeinght)) {
       activedItem.classList.remove('active');
       activingItem.classList.add('active');
     }
@@ -45,13 +45,14 @@ document.addEventListener('scroll', () => {
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 
-const activeItem = (target) => {
-  const activedItem = document.querySelector('.active');
+const activeItem = (currentTarget, target) => {
+  const activedItem = currentTarget.querySelector('.active');
   activedItem.classList.remove('active');
   target.classList.add('active');
 }
 
 navbarMenu.addEventListener('click', (event) => {
+  const currentTarget = event.currentTarget;
   const target = event.target;
   const link = target.dataset.link;
 
@@ -59,7 +60,7 @@ navbarMenu.addEventListener('click', (event) => {
 
   scrollIntoViews(link);
   setTimeout(() => {
-    activeItem(target);
+    activeItem(currentTarget, target);
   }, 50);
 });
 
@@ -79,6 +80,6 @@ document.addEventListener('scroll', () => {
 
 const scrollIntoViews = (selector) => {
   const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({behavior: 'smooth'});
+  scrollTo.scrollIntoView({block: 'center', behavior: 'smooth'});
 }
 
