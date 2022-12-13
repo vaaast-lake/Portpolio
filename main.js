@@ -83,3 +83,17 @@ const scrollIntoViews = (selector) => {
   scrollTo.scrollIntoView({block: 'center', behavior: 'smooth'});
 }
 
+// Make arrow-up button fade in as the window scrolls down.
+const arrowBtn = document.querySelector('.arrow-up');
+
+document.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    arrowBtn.classList.add('active');
+  } else {
+    arrowBtn.classList.remove('active');
+  }
+});
+
+arrowBtn.addEventListener('click', (event) => {
+  scrollIntoViews('#home');
+});
