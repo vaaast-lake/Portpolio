@@ -14,33 +14,12 @@ const onSticky = (scrollPos) => {
   }
 }
 
-// home fade in and out on scroll
-const fadeOutOnScroll = (element) => {
-  if (!element) return;
-  
-  const children = element.querySelectorAll('[data-fading="fading"]')
-  const elementHeight = element.getBoundingClientRect().height;
-  const scrollTop = window.scrollY;
-  let distanceToTop = scrollTop + element.getBoundingClientRect().top;
-  let opacity = 1;
-
-  if (scrollTop > distanceToTop) {
-    opacity = 1 - (scrollTop - distanceToTop) / elementHeight;
-  }
-  if (opacity >= 0) {
-    children.forEach(el => {
-      el.style.opacity = opacity;
-    });
-  }
-}
-
 // sticky navbar & navbar active depend on scroll position.
 document.addEventListener('scroll', () => {
   const bodyHeight = document.querySelector('body').scrollHeight;
   const scrollPos = window.scrollY;
   const activedItem = navbar.querySelector('.active');
   const navbarItems = document.querySelectorAll('.navbar__menu__item');
-  const home = document.querySelector('#home');
 
   navbarItems.forEach(item => {
     const link = item.dataset.link; // #home
@@ -61,7 +40,6 @@ document.addEventListener('scroll', () => {
   });
 
   onSticky(scrollPos);
-  fadeOutOnScroll(home);
 });
 
 // Handle scrolling when tapping on the navbar menu
@@ -92,7 +70,15 @@ homeContactBtn.addEventListener('click', () => {
   scrollIntoViews('#contact')
 });
 
+// Make home slowly fade to transparent as the window scrolls down.
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll', () => {
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+});
+
 const scrollIntoViews = (selector) => {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({behavior: 'smooth'});
 }
+
