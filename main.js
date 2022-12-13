@@ -28,12 +28,12 @@ document.addEventListener('scroll', () => {
     const sectionHeinght = section.getBoundingClientRect().height;
     const activingItem = navbar.querySelector(`[data-link="${link}"]`);
 
-    if (Math.floor(scrollPos + window.innerHeight + 200) >= Math.floor(bodyHeight)) {
+    if (Math.floor(scrollPos + window.innerHeight + 50) >= Math.floor(bodyHeight)) {
       const contact = navbar.querySelector('[data-link="#contact"]');
       activedItem.classList.remove('active');
       contact.classList.add('active');
     }
-    else if ((scrollPos + 150 >= sectionTop) && (scrollPos + 150 < sectionTop + sectionHeinght)) {
+    else if ((scrollPos + 500 >= sectionTop) && (scrollPos + 500 < sectionTop + sectionHeinght)) {
       activedItem.classList.remove('active');
       activingItem.classList.add('active');
     }
