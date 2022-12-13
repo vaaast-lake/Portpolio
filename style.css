@@ -91,25 +91,6 @@ p {
   margin: 4px 0;
 }
 
-/* Arrow-up Button */
-.arrow-up {
-  position: fixed;
-  background-color: var(--color-dark-pink);
-  width: 50px;
-  height: 50px;
-  font-size: 30px;
-  color: var(--color-white);
-  border-radius: 50%;
-  right: 15px;
-  bottom: 15px;
-  opacity: 0;
-  transition: all var(--animation-duration) ease-in-out;
-}
-
-.arrow-up.active {
-  opacity: 1;
-}
-
 /* Navbar */
 #navbar {
   display: flex;
@@ -496,6 +477,27 @@ p {
   transform: scale(1.1);
   color: var(--color-yellow);
   transition: all var(--animation-duration) ease-in;
+}
+
+/* Arrow-up Button */
+.arrow-up {
+  position: fixed;
+  background-color: var(--color-dark-pink);
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  color: var(--color-white);
+  border-radius: 50%;
+  right: 15px;
+  bottom: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--animation-duration) ease-in-out;
+}
+
+.arrow-up.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* For below 768px screen width */

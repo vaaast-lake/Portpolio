@@ -78,22 +78,22 @@ document.addEventListener('scroll', () => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
 
+// Show "arrow-up" button when scrolling down.
+const arrowUp = document.querySelector('.arrow-up');
+document.addEventListener('scroll', () => {
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add('active');
+  } else {
+    arrowUp.classList.remove('active');
+  }
+});
+
+// Handle click on the "arrow up" button.
+arrowUp.addEventListener('click', () => {
+  scrollIntoViews('#home');
+});
+
 const scrollIntoViews = (selector) => {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({block: 'center', behavior: 'smooth'});
 }
-
-// Make arrow-up button fade in as the window scrolls down.
-const arrowBtn = document.querySelector('.arrow-up');
-
-document.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    arrowBtn.classList.add('active');
-  } else {
-    arrowBtn.classList.remove('active');
-  }
-});
-
-arrowBtn.addEventListener('click', (event) => {
-  scrollIntoViews('#home');
-});
