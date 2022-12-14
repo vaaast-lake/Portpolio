@@ -97,3 +97,27 @@ const scrollIntoViews = (selector) => {
   const scrollTo = document.querySelector(selector);
   scrollTo.scrollIntoView({block: 'center', behavior: 'smooth'});
 }
+
+// filtering with "category button"
+const workBtnContainer = document.querySelector('.work__categories');
+const projectContainer = document.querySelector('.work__projects');
+const projects = document.querySelectorAll('.project');
+
+workBtnContainer.addEventListener('click', (element) => {
+  const filter = element.target.dataset.filter || element.target.parentNode.dataset.filter;
+
+  if (filter == null) return;
+  
+  projectContainer.classList.add('anim-out');
+
+  setTimeout(() => {
+    projects.forEach((project) =>{
+      if (filter === '*' || filter === project.dataset.type) {
+        project.classList.remove('invisible');
+      } else {
+        project.classList.add('invisible');
+      }
+    });
+    projectContainer.classList.remove('anim-out');
+  }, 300);
+});

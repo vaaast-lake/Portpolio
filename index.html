@@ -182,16 +182,36 @@
       <h1>My work</h1>
       <h2>Projects</h2>
       <div class="work__categories">
-        <button class="category__btn active">All <sapn class="category__count">8</sapn></button>
-        <button class="category__btn">Front-end<sapn class="category__count">3</sapn></button>
-        <button class="category__btn">Back-end <sapn class="category__count">3</sapn></button>
-        <button class="category__btn">Mobile <sapn class="category__count">2</sapn></button>
+        <button class="category__btn active" data-filter="*">
+          All
+          <sapn class="category__count">
+            4
+          </sapn>
+      </button>
+        <button class="category__btn" data-filter="front-end">Front-end
+          <sapn class="category__count">
+            2
+          </sapn>
+      </button>
+        <button class="category__btn" data-filter="back-end">
+          Back-end
+          <sapn class="category__count">
+            1
+          </sapn>
+      </button>
+        <button class="category__btn" data-filter="mobile">
+          Mobile
+          <sapn class="category__count">
+            1
+          </sapn>
+      </button>
       </div>
       <div class="work__projects">
         <a
           href=""
           class="project"
           target="blank"
+          data-type="front-end"
         >
           <img src="./imgs/tempProfile.png" alt="tmpImg" class="project__img">
           <div class="project__description">
@@ -203,6 +223,7 @@
           href=""
           class="project"
           target="blank"
+          data-type="front-end"
         >
           <img src="./imgs/tempProfile.png" alt="tmpImg" class="project__img">
           <div class="project__description">
@@ -214,6 +235,7 @@
           href=""
           class="project"
           target="blank"
+          data-type="back-end"
         >
           <img src="./imgs/tempProfile.png" alt="tmpImg" class="project__img">
           <div class="project__description">
@@ -225,6 +247,7 @@
           href=""
           class="project"
           target="blank"
+          data-type="mobile"
         >
           <img src="./imgs/tempProfile.png" alt="tmpImg" class="project__img">
           <div class="project__description">

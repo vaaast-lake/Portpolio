@@ -55,8 +55,13 @@ ul {
   padding-left: 0;
 }
 
+li {
+  user-select: none;
+}
+
 button {
   background-color: transparent;
+  user-select: none;
   cursor: pointer;
   border: none;
   outline: none;
@@ -123,7 +128,7 @@ p {
   margin: 0px 4px;
   cursor: pointer;
   border-radius: var(--size-border-radius);
-  transition: all 300ms ease-in-out;
+  transition: all var(--animation-duration) ease-in-out;
 }
 
 .navbar__menu__item:focus-visible {
@@ -311,6 +316,7 @@ p {
 /* Work */
 .work__categories {
   margin: 20px;
+  user-select: none;
 }
 
 .category__btn {
@@ -352,6 +358,13 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  opacity: 1;
+  transition: all var(--animation-duration) ease-in-out;
+}
+
+.work__projects.anim-out {
+  opacity: 0;
+  transform: scale(0.96) translateY(40px);
 }
 
 .project {
@@ -364,6 +377,13 @@ p {
   height: 250px;
   margin: 2px;
   background-color: var(--color-light-white);
+  transform: translateY(20px);
+  transition: all var(--animation-duration) ease-out;
+}
+
+.project.invisible {
+  transform: translateY(0);
+  display: none;
 }
 
 .project__img {
