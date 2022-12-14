@@ -104,8 +104,11 @@ const projectContainer = document.querySelector('.work__projects');
 const projects = document.querySelectorAll('.project');
 
 workBtnContainer.addEventListener('click', (element) => {
+  if (element.target === element.currentTarget) return;
+  const button = element.target.tagName === 'BUTTON' ? element.target : element.target.parentNode;
   const filter = element.target.dataset.filter || element.target.parentNode.dataset.filter;
 
+  // Project animation
   if (filter == null) return;
   
   projectContainer.classList.add('anim-out');
@@ -120,4 +123,7 @@ workBtnContainer.addEventListener('click', (element) => {
     });
     projectContainer.classList.remove('anim-out');
   }, 300);
+
+  // Project button active
+  activeItem(element.currentTarget, button);
 });
