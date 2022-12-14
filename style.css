@@ -127,8 +127,9 @@ p {
   padding: 4px 12px;
   margin: 0px 4px;
   cursor: pointer;
+  border: 1px solid transparent;
   border-radius: var(--size-border-radius);
-  transition: all var(--animation-duration) ease-in-out;
+  transition: all var(--animation-duration) ease-out;
 }
 
 .navbar__menu__item:focus-visible {
@@ -139,8 +140,8 @@ p {
   background-color: var(--color-pink);
 }
 
-.navbar__menu__item.active {
-  border: 1px solid var(--color-white) ;
+.navbar__menu__item.selected {
+  border-color: var(--color-white);
 }
 
 .navbar__toggle-btn {
@@ -329,13 +330,13 @@ p {
   transition: width var(--animation-duration) ease-in-out;
 }
 
-.category__btn.active,
+.category__btn.selected,
 .category__btn:hover {
   background-color: var(--color-pink);
   color: var(--color-white);
 }
 
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
   opacity: 1;
   max-width: 22px;

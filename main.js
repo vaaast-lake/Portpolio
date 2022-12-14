@@ -14,11 +14,11 @@ const onSticky = (scrollPos) => {
   }
 }
 
-// sticky navbar & navbar active depend on scroll position.
+// sticky navbar & navbar selected depend on scroll position.
 document.addEventListener('scroll', () => {
   const bodyHeight = document.querySelector('body').scrollHeight;
   const scrollPos = window.scrollY;
-  const activedItem = navbar.querySelector('.active');
+  const selectedItem = navbar.querySelector('.selected');
   const navbarItems = document.querySelectorAll('.navbar__menu__item');
 
   navbarItems.forEach(item => {
@@ -30,12 +30,12 @@ document.addEventListener('scroll', () => {
 
     if (Math.floor(scrollPos + window.innerHeight) == Math.floor(bodyHeight)) {
       const contact = navbar.querySelector('[data-link="#contact"]');
-      activedItem.classList.remove('active');
-      contact.classList.add('active');
+      selectedItem.classList.remove('selected');
+      contact.classList.add('selected');
     }
     else if ((scrollPos + 500 >= distanceToTop) && (scrollPos + 500 < distanceToTop + sectionHeinght)) {
-      activedItem.classList.remove('active');
-      activingItem.classList.add('active');
+      selectedItem.classList.remove('selected');
+      activingItem.classList.add('selected');
     }
   });
 
@@ -45,10 +45,10 @@ document.addEventListener('scroll', () => {
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 
-const activeItem = (currentTarget, target) => {
-  const activedItem = currentTarget.querySelector('.active');
-  activedItem.classList.remove('active');
-  target.classList.add('active');
+const selectedItem = (currentTarget, target) => {
+  const selectedItem = currentTarget.querySelector('.selected');
+  selectedItem.classList.remove('selected');
+  target.classList.add('selected');
 }
 
 navbarMenu.addEventListener('click', (event) => {
@@ -60,7 +60,7 @@ navbarMenu.addEventListener('click', (event) => {
 
   scrollIntoViews(link);
   setTimeout(() => {
-    activeItem(currentTarget, target);
+    selectedItem(currentTarget, target);
   }, 50);
 });
 
@@ -124,6 +124,6 @@ workBtnContainer.addEventListener('click', (element) => {
     projectContainer.classList.remove('anim-out');
   }, 300);
 
-  // Project button active
-  activeItem(element.currentTarget, button);
+  // Project button selected
+  selectedItem(element.currentTarget, button);
 });
