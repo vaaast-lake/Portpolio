@@ -127,3 +127,13 @@ workBtnContainer.addEventListener('click', (element) => {
   // Project button selected
   selectedItem(element.currentTarget, button);
 });
+
+// Toggle button
+navbar.addEventListener('click', e => {
+  const toggleBtn = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+
+  if (toggleBtn === null) return;
+
+  navbar.classList.toggle('active');
+  navbarMenu.classList.toggle('active');
+});
