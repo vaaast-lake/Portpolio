@@ -104,7 +104,7 @@ p {
   justify-content: space-between;
   align-items: center;
   vertical-align: text-bottom;
-  padding: 0 16px;
+  padding: 2px 16px;
   transition: all var(--animation-duration) ease-in-out;
   z-index: 1;
 }
@@ -115,6 +115,8 @@ p {
 }
 
 .navbar__logo {
+  display: flex;
+  justify-content: space-between;
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
 }
@@ -146,9 +148,6 @@ p {
 }
 
 .navbar__toggle-btn {
-  position: absolute;
-  top: 8px;
-  right: 32px;
   font-size: 24px;
   color: var(--color-white);
   display: none;
@@ -412,7 +411,7 @@ p {
 }
 
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 
 .project__description h3::after {
@@ -421,7 +420,7 @@ p {
   position: relative;
   margin: auto;
   margin-top: 8px;
-  width: 25px;
+  width: 50px;
   height: 2px;
   background-color: var(--color-dark-white);
 }
@@ -529,12 +528,20 @@ p {
     opacity: 0.98;
   }
   
+  #navbar.sticky {
+    padding-top: 8px;
+  }
+
   #navbar.active {
     background-color: var(--color-dark-pink);
   }
-  
+
+  .navbar__logo {
+    width: 100%;
+  }
+
   .navbar__toggle-btn {
-    display: block;
+    display: inline-block;
   }
 
   .navbar__menu {
