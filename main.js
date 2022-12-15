@@ -61,6 +61,16 @@ navbarMenu.addEventListener('click', (event) => {
   setTimeout(() => {
     selectedItem(currentTarget, target);
   }, 50);
+
+  navbar.classList.remove('active');
+  navbarMenu.classList.remove('active');
+});
+
+// Toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+  navbar.classList.toggle('active');
+  navbarMenu.classList.toggle('active');
 });
 
 // Handle click on "contact me" button on home
@@ -94,7 +104,7 @@ arrowUp.addEventListener('click', () => {
 
 const scrollIntoViews = (selector) => {
   const scrollTo = document.querySelector(selector);
-  scrollTo.scrollIntoView({block: 'center', behavior: 'smooth'});
+  scrollTo.scrollIntoView({block: 'start', behavior: 'smooth'});
 }
 
 // filtering with "category button"
@@ -125,14 +135,4 @@ workBtnContainer.addEventListener('click', (element) => {
 
   // Project button selected
   selectedItem(element.currentTarget, button);
-});
-
-// Toggle button
-navbar.addEventListener('click', e => {
-  const toggleBtn = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
-
-  if (toggleBtn === null) return;
-
-  navbar.classList.toggle('active');
-  navbarMenu.classList.toggle('active');
 });
