@@ -16,29 +16,28 @@ const onSticky = (scrollPos) => {
 
 // sticky navbar & navbar selected depend on scroll position.
 document.addEventListener('scroll', () => {
-  const bodyHeight = document.querySelector('body').scrollHeight;
   const scrollPos = window.scrollY;
-  const selectedItem = navbar.querySelector('.selected');
-  const navbarItems = document.querySelectorAll('.navbar__menu__item');
+  // const bodyHeight = document.querySelector('body').scrollHeight;
+  // const selectedItem = navbar.querySelector('.selected');
+  // const navbarItems = document.querySelectorAll('.navbar__menu__item');
 
-  navbarItems.forEach(item => {
-    const link = item.dataset.link; // #home
-    const section = document.querySelector(link);
-    const distanceToTop = window.scrollY + section.getBoundingClientRect().top;
-    const sectionHeinght = section.getBoundingClientRect().height;
-    const activingItem = navbar.querySelector(`[data-link="${link}"]`);
+  // navbarItems.forEach(item => {
+  //   const link = item.dataset.link; // #home
+  //   const section = document.querySelector(link);
+  //   const distanceToTop = window.scrollY + section.getBoundingClientRect().top;
+  //   const sectionHeinght = section.getBoundingClientRect().height;
+  //   const activingItem = navbar.querySelector(`[data-link="${link}"]`);
 
-    if (Math.floor(scrollPos + window.innerHeight) == Math.floor(bodyHeight)) {
-      const contact = navbar.querySelector('[data-link="#contact"]');
-      selectedItem.classList.remove('selected');
-      contact.classList.add('selected');
-    }
-    else if ((scrollPos + 500 >= distanceToTop) && (scrollPos + 500 < distanceToTop + sectionHeinght)) {
-      selectedItem.classList.remove('selected');
-      activingItem.classList.add('selected');
-    }
-  });
-
+  //   if (Math.floor(scrollPos + window.innerHeight) == Math.floor(bodyHeight)) {
+  //     const contact = navbar.querySelector('[data-link="#contact"]');
+  //     selectedItem.classList.remove('selected');
+  //     contact.classList.add('selected');
+  //   }
+  //   else if ((scrollPos + 300 >= distanceToTop) && (scrollPos + 300 < distanceToTop + sectionHeinght)) {
+  //     selectedItem.classList.remove('selected');
+  //     activingItem.classList.add('selected');
+  //   }
+  // });
   onSticky(scrollPos);
 });
 
