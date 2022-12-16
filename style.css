@@ -603,7 +603,7 @@ p {
   .category__btn {
     margin: 4px 0;
     width: 100%;
-    /* padding: 8px; */
+    max-width: 300px;
   }
 
   .category__count {
