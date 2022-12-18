@@ -23,7 +23,7 @@ document.addEventListener('scroll', () => {
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 
-const selectedItem = (currentTarget, target) => {
+const selectItem = (currentTarget, target) => {
   const selectedItem = currentTarget.querySelector('.selected');
   selectedItem.classList.remove('selected');
   target.classList.add('selected');
@@ -38,7 +38,7 @@ navbarMenu.addEventListener('click', (event) => {
 
   scrollIntoViews(link);
   // setTimeout(() => {
-    selectedItem(currentTarget, target);
+    selectItem(currentTarget, target);
   // }, 50);
 
   navbar.classList.remove('active');
@@ -110,7 +110,7 @@ workBtnContainer.addEventListener('click', (element) => {
   }, 300);
 
   // Project button selected
-  selectedItem(element.currentTarget, button);
+  selectItem(element.currentTarget, button);
 });
 
 // 1. 모든 섹션 요소와 메뉴 아이템을 가져온다
@@ -126,16 +126,15 @@ const sectionIds = [
   '#contact'
 ]
 const sections = sectionIds.map(id => document.querySelector(id));
-const navItems = sectionIds.map(id => document.querySelector(`[data-link="${id}"]`));
+const navItems = sectionIds.map(id => navbarMenu.querySelector(`[data-link="${id}"]`));
 
 let selectedNavIdx = 0;
-let selectedNavItem = navItems[0];
+let selectedNavItem = navItems[selectedNavIdx];
 
 const selectNavItem = (selected) => {
   selectedNavItem.classList.remove('selected');
   selectedNavItem = selected;
   selectedNavItem.classList.add('selected');
-  // console.log('selectedNavItem: ', selectedNavItem);
 }
 
 const scrollIntoViews = (selector) => {
@@ -147,22 +146,19 @@ const scrollIntoViews = (selector) => {
 const observerOption = {
   root: null,
   rootMargin: '0px',
-  threshold: 0.3
+  threshold: 0.7
 }
 
 const observerCallback = (entries, observer) => {
-  console.log('callback work');
   entries.forEach(entry => {
     if (!entry.isIntersecting && entry.intersectionRatio > 0) {
       const index = sectionIds.indexOf(`#${entry.target.id}`);
-      // 아래로 스크롤링 돼서 페이지가 올라옴
       if (entry.boundingClientRect.y < 0) {
         selectedNavIdx = index + 1;
       } else {
         selectedNavIdx = index - 1;
       }
     }
-    // console.log('isIntersecting: ', entry.isIntersecting);
   });
 }
 
@@ -176,5 +172,5 @@ window.addEventListener('wheel', () => {
     selectedNavIdx = navItems.length - 1;
   }
   selectNavItem(navItems[selectedNavIdx]);
-  // console.log('navItems[selectedNavIdx]: ', selectedNavIdx);
+  // console.log('eventListener end');
 });
